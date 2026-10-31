@@ -82,3 +82,24 @@ revealElements.forEach(function(element) {
     element.classList.add("reveal");
     revealObserver.observe(element);
 });
+// MOBILE MENU
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileNav = document.getElementById("mobileNav");
+
+if (menuBtn && mobileNav) {
+
+    menuBtn.addEventListener("click", function () {
+        mobileNav.classList.toggle("show");
+
+        menuBtn.textContent =
+            mobileNav.classList.contains("show") ? "✕" : "☰";
+    });
+
+    mobileNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            mobileNav.classList.remove("show");
+            menuBtn.textContent = "☰";
+        });
+    });
+}
