@@ -345,3 +345,13 @@ footer h3 {
     z-index: 9999;
     transition: width 0.1s;
 }
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
