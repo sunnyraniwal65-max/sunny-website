@@ -1,20 +1,36 @@
-function showMessage() {
-    alert("Hello Sunny! JavaScript is working!");
-}
 
+// DIGITAL CLOCK
 function showClock() {
-    let time = new Date();
+    const clock = document.getElementById("clock");
 
-    let hours = String(time.getHours()).padStart(2, "0");
-    let minutes = String(time.getMinutes()).padStart(2, "0");
-    let seconds = String(time.getSeconds()).padStart(2, "0");
+    if (!clock) return;
 
-    document.getElementById("clock").innerHTML =
-        hours + ":" + minutes + ":" + seconds;
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+    });
 }
 
-setInterval(showClock, 1000);
 showClock();
+setInterval(showClock, 1000);
+
+
+// BACK TO TOP BUTTON
+const topButton = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function () {
+    if (!topButton) return;
+
+    if (window.scrollY > 300) {
+        topButton.style.display = "block";
+    } else {
+        topButton.style.display = "none";
+    }
+});
 
 function backToTop() {
     window.scrollTo({
