@@ -38,3 +38,21 @@ function backToTop() {
         behavior: "smooth"
     });
 }
+// GOLDEN SCROLL PROGRESS BAR
+
+window.addEventListener("scroll", function () {
+
+    const bar = document.getElementById("progressBar");
+
+    if (!bar) return;
+
+    const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress = totalHeight > 0
+        ? (window.scrollY / totalHeight) * 100
+        : 0;
+
+    bar.style.width = progress + "%";
+
+});
