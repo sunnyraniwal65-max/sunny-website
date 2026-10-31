@@ -56,3 +56,29 @@ window.addEventListener("scroll", function () {
     bar.style.width = progress + "%";
 
 });
+// SCROLL REVEAL ANIMATION
+
+const revealElements = document.querySelectorAll("section");
+
+const revealObserver = new IntersectionObserver(
+    function(entries, observer) {
+
+        entries.forEach(function(entry) {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach(function(element) {
+    element.classList.add("reveal");
+    revealObserver.observe(element);
+});
