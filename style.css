@@ -335,3 +335,13 @@ footer h3 {
         height: 230px;
     }
 }
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37, #fff2a8);
+    z-index: 9999;
+    transition: width 0.1s;
+}
